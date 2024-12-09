@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8-Puzzle</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'puzzle/8puzzle.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="8-Puzzle">
+    <div class="game-body">
+        <div class="sidebar">
+            <div class="sidebar-top">
+                <div class="sidebar-info">
+                    <h1>Game 8-Puzzle</h1>
+                    <p>Trò chơi ghép tranh 8-Puzzle 3x3</p>
+                    <p>Hãy cố gắng sắp xếp các ô theo đúng thứ tự (thứ tự đúng là ngay khi bạn vào web hoặc refresh), thêm ảnh và hiện số thứ tự trên ảnh để dễ dàng hơn nếu bạn muốn</p>
+                </div>
+                <div class="sidebar-info">
+                    <h1>Nhóm 1</h1>
+                    <p>Lớp học phần Trí tuệ nhân tạo</p>
+                    <p>Mã lớp học phần: 010100085801</p>
+                </div>
+                <div class="sidebar-info">
+                    <p>"Mới": Shuffle puzzle</p>
+                    <p>"Xác nhận": xác nhận khi bạn đã chơi xong!!</p>
+                    <p>"Số bước AI": hiện ra số bước AI giải quyết puzzle hiện tại</p>
+                    <p>"Nhờ AI giải": AI sẽ giải giúp bạn khi bạn chưa giải được</p>
+                </div>
+            </div>
+        </div>
+        <game class="text-center ps-5">
+            <board class="d-flex justify-content-around">
+                <div class="game p-4 ps-5">
+                    <div id="board" class="board show-tiles" style="width: 537px; height: 537px;">
+                    <!-- Các ô (tile) sẽ được tạo động bằng JavaScript -->
+                </div>
+            </board>
+            <tools>
+                <div class="show-num d-flex justify-content-around align-items-center">
+                    <label class="d-flex align-items-center">
+                        <input type="checkbox" id="shownumber" checked>
+                        <span class="fs-5 ms-2">Hiện số thứ tự</span> 
+                    </label>
+                </div>
+                <div class="tools p-3 d-flex justify-content-around">
+                    <div class="actions d-flex align-items-start">
+                        <button style="background-color: #9EA9E8" id="uploadInput-btn" class="btn mx-1">Upload ảnh</button>
+                        <input style="display: none" type="file" id="uploadInput" accept="image/*" class="form-control">
+                        <button id="new" class="btn btn-info mx-1">Mới</button>
+                        <button id="submit" class="btn btn-success mx-1">Xác nhận</button>
+                        <button id="ai" class="btn btn-warning mx-1">Số bước AI</button>
+                        <button style="background-color: #E7ECF0" id="ai-helper" class="btn mx-1">Nhờ AI giải</button>
+                    </div>
+                </div>
+            </tools>
+            <steps>
+                <div class="steps">
+                    <h5 id="user-steps">Số bước đi: 0</h5>
+                    <h5 id="ai-steps">Số bước AI giải: 0</h5>
+                </div>
+            </steps>
+        </game>
+        <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+    </div>
+    <script src="{% static 'puzzle/8puzzle.js' %}"></script>
+</body>
+
+</html>

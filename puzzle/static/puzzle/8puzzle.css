@@ -1,0 +1,227 @@
+body {
+  margin: auto;
+  padding: 0;
+  box-sizing: border-box;
+  touch-action: manipulation;
+  display: block;
+  /*background-image: url(nen.png);*/
+  /*này thêm nền thêm hay không cũng được*/
+  min-height: 100%;
+  height: 100%;
+  font-family: "Quicksand", sans-serif;
+  overflow: hidden;
+}
+
+:root {
+  --colorA: #ff165d;
+  --colorB: #0f3394;
+  --colorC: #485f7a;
+  --colorD: #ffa007;
+  --sliderSize: 85px;
+  --sliderFontSize: 24px;
+}
+
+.game-body {
+  display: flex;
+  gap: 10px;
+}
+
+.sidebar {
+  min-width: 360px;
+  width: 360px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-right: 3px solid #eee;
+  font-family: "Contrail One", sans-serif;
+  background: #f9f9f9;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.sidebar-top {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.sidebar-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border: 2px solid;
+  border-radius: 10px;
+  flex-grow: 1;
+  border-color: var(--colorB);
+  box-shadow: 2px 2px var(--colorB);
+  color: var(--colorB);
+  font-family: monospace;
+}
+
+.sidebar-setting {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border: 2px solid;
+  border-radius: 10px;
+  flex-grow: 1;
+  border-color: var(--colorB);
+  box-shadow: 2px 2px var(--colorB);
+  color: var(--colorB);
+  font-family: monospace;
+}
+
+.sidebar-info h1 {
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  font-family: "Contrail One", sans-serif;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+game {
+  flex: 1;
+}
+
+#board {
+  width: 1074px;
+  height: 1074px
+}
+
+board {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+element.style {
+  width: 265px;
+  height: 265px;
+}
+
+.tile.empty {
+  background-color: black;
+  position: absolute;
+}
+
+.tile {
+  box-shadow: 0 0 3px rgba(5, 13, 26, 0.8);
+  z-index: 10;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all .3s, opacity 1s ease-in, filter 1s ease-in;
+  background-color: #eee;
+  width: 177px;
+  height: 179px;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+
+.tile span {
+  visibility: hidden;
+  font-size: 3em;
+  color: white;
+}
+
+label {
+  font-size: .8em;
+  cursor: default;
+}
+
+input[type="checkbox" i] {
+  background-color: initial;
+  cursor: default;
+  appearance: auto;
+  box-sizing: border-box;
+  margin: 3px 3px 3px 4px;
+  padding: initial;
+  border: initial;
+}
+
+label {
+  font-size: .8em;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  width: 100%;
+}
+
+.board {
+  position: relative;
+  background-color: black;
+  box-shadow: 0 0 3px rgba(5, 13, 26, 0.8);
+  overflow: hidden;
+}
+
+.tile {
+  box-shadow: 0 0 3px rgba(5, 13, 26, 0.8);
+  z-index: 10;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all .3s, opacity 1s ease-in, filter 1s ease-in;
+}
+
+.tile span {
+  visibility: hidden;
+  font-size: 3em;
+  color: white;
+}
+
+.show-tiles .tile span {
+  visibility: visible;
+}
+
+.hidden-numbers .tile span{
+  display: none;
+}
+
+.controls button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: 2px solid;
+  border-radius: 6px;
+  text-transform: uppercase;
+  font-family: inherit;
+  color: var(--colorB);
+  background: white;
+  box-shadow: 2px 2px;
+  font-size: 18px;
+  cursor: pointer;
+}
